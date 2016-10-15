@@ -31,36 +31,22 @@
 
      variable从0~2变化，迭代创建了3个square进程，因此将迭代次数减少1，即variable下限减少1
 
-         <iterator variable="i" range="N">
-         	<process name="square">
-               <append function="i"/>
-               <port type="input" name="0"/>
-               <port type="output" name="1"/>
-               <source type="c" location="square.c"/>
-         	</process>
-         </iterator>
+     `<iterator variable="i" range="N">`
 
      将range="N"  改为range="N-1"  
 
-     	<iterator variable="i" range="N-1">
-     	……
+     `<iterator variable="i" range="N-1">`
 
    * 修改通道个数定义的次数
 
      variable从0~3变化，迭代创建了4个通道，因此将迭代次数减少1，即variable下限减少1
 
-         <iterator variable="i" range="N+1">
-             <sw_channel type="fifo" size="10" name="C2">
-               <append function="i"/>
-               <port type="input" name="0"/>
-               <port type="output" name="1"/>
-             </sw_channel>
-         </iterator>
+     `<iterator variable="i" range="N+1">`
+
 
      将range="N+1"  改为range="N"  
 
-     	<iterator variable="i" range="N">
-     	……
+     `<iterator variable="i" range="N">`
 
    * 修改连接square的通道定义的次数
 
@@ -68,40 +54,19 @@
 
        variable从0~2变化，迭代创建了3个连接，因此将迭代次数减少1，即variable下限减少1  
 
-           <!-- instantiate connection -->
-           <iterator variable="i" range="N">
-             <connection name="to_square">
-             ……
-             </connection>
+        `<iterator variable="i" range="N">`
            
-             <connection name="from_square">
-             ……
-             </connection>
-           </iterator>
+        将range="N"  改为range="N-1"  
 
-       将range="N+1"  改为range="N"  
-
-       ` <iterator variable="i" range="N-1">`
+        ` <iterator variable="i" range="N-1">`
 
      * 最后一个通道连接到消费者consumer的INPUT端口
 
-           <connection name="_c">
-             <origin name="C2">
-               <append function="N"/>
-               <port name="1"/>
-             </origin>
-             <target name="consumer">
-               <port name="100"/>
-             </target>
-           </connection>
+       `<append function="N"/>`
 
-       最后一个通道function为“N-1”而不再是“N”
+        最后一个通道function为“N-1”而不再是“N”
 
-           <connection name="_c">
-           ……
-               <append function="N-1"/>
-           ……
-           </connection>  
+        `<append function="N-1"/>`
 
      ​
 

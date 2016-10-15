@@ -24,51 +24,72 @@
 
 #####配置步骤：
 
-1. 下载文件(使用Vmware虚拟机，也可以从主机拷贝到虚拟机中去[Tutorial](http://jingyan.baidu.com/article/c33e3f48a5c153ea15cbb5b2.html)
+1. 下载文件(使用Vmware虚拟机，也可以从主机拷贝到虚拟机中去)[Tutorial](http://jingyan.baidu.com/article/c33e3f48a5c153ea15cbb5b2.html)
 
    - sudo wget [systemc-2.3.1.tgz](http://www.accellera.org/images/downloads/standards/systemc/systemc-2.3.1.tgz)
    - sudo wget [dol_ethz.zip](http://www.tik.ee.ethz.ch/~shapes/downloads/dol_ethz.zip)
 
 2. 解压文件
 
-   - 新建dol的文件夹  
+   - 新建dol的文件夹 
+
      `$	mkdir dol`
+
    - 将dolethz.zip解压到dol文件夹中  
+
      `$	unzip dol_ethz.zip -d dol`
+
    - 解压systemc  
+
      `$	tar -zxvf systemc-2.3.1.tgz`
 
      ![解压文件](http://p1.bqimg.com/4851/8571fe15d05f36d7.png)
+
      **图一 创建的文件夹dol**
 
 3. 编译systemc
 
    - 解压后进入systemc-2.3.1的目录下
+
      `$	cd systemc-2.3.1`
+
    - 新建一个临时文件夹objdir
+
      `$	mkdir objdir`
+
    - 进入该文件夹objdir
+
      `$	cd objdir`
+
    - 运行configure(能根据系统的环境设置一下参数，用于编译)
+
      `$	../configure CXX=g++ --disable-async-updates`
 
      ![configure1](http://p1.bqimg.com/4851/2dff14dda735b6d8.png)
      ![configure2](http://p1.bqimg.com/4851/365df95e408f3f1b.png)
+
      **图二、三 运行configure后的结果**
 
    - 编译
+
      `$sudo make install`
+
    - 编译完后文件目录如下(能看到include, lib-linux64(对于32位系统，这里是lib-linux)
+
      `$ cd ..`
+
      `$ ls`
 
       ![ls](http://p1.bqimg.com/4851/b5f051d202a2d65e.png)
+
       **图四 systemc-2.3.1目录下的文件**
 
    - 记录当前的工作路径(会输出当前所在路径，记下来，待会有用)
+
      `$	pwd`
 
      ![path](http://p1.bqimg.com/4851/241fa5ead84e2f77.png)
+
      **图五 显示当前的工作路径**
 
 4. 编译dol
@@ -88,18 +109,25 @@
      **把YYY改成上页pwd的结果（注意，对于64位系统的机器，lib-linux要改成lib-linux64）**
 
      ![modify](http://p1.bqimg.com/4851/82a567923e25eff3.png)
+
      **图六 修改build_zip.xml文件指定内容**
 
    - 编译(若成功会显示build successful)
+
      `$ant -f build_zip.xml all`
 
      ![compile](http://p1.bqimg.com/4851/5a2baa51807ffc47.png)
+
      **图七 编译成功**
 
    - 接着可以试试运行第一个例子
+
      **进入build/bin/mian路径下**
+
      `$cd build/bin/main`
+
      **然后运行第一个例子**
+
      `$ant -f runexample.xml -Dnumber=1`
 
      ![run successfully](http://p1.bpimg.com/4851/c7f6b2c64b1abf2a.png)
@@ -107,10 +135,10 @@
      **图八 运行结果**
 
      ![example1](http://p1.bqimg.com/4851/2d70c1dfd39832b0.png)
+
      **图九 example1.dot**
 
      ​
-
 
 
 # Experimental experience
@@ -129,7 +157,8 @@
     </touch>
 
 修改为：
-    <!--     <tstamp>
+
+    <!-- <tstamp>
     	<format property="touch.time"
               pattern="MM/dd/yyyy hh:mm aa"
               offset="-5" unit="second"/>
@@ -137,6 +166,7 @@
     <touch datetime="${touch.time}">
       <fileset dir="example${number}"/>
     </touch> -->
+
 即注释掉或者删掉即可。
 
 ![problem](http://p1.bpimg.com/4851/1b3113b30c103519.png)

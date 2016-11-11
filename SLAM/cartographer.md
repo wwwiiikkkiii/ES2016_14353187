@@ -26,17 +26,17 @@
 
 * `sudo make install`
 
-   ![4](cartographer_截图\4.png)
+   ![](http://yotuku.cn/link?url=4yCNwh0lG&tk_plan=free&tk_storage=tietuku&tk_vuid=a577832b-efdb-4ad2-8b19-e290d50f6e07&tk_time=2016111121)
 
 **2.然后安装 cartographer（路径随意）**
 
 * `git clone https://github.com/hitcm/cartographer.git`
 
-   ![111](cartographer_截图\111.png)
+   ![](http://yotuku.cn/link?url=N1_dPnAgG&tk_plan=free&tk_storage=tietuku&tk_vuid=a577832b-efdb-4ad2-8b19-e290d50f6e07&tk_time=2016111121)
 
 * `cd cartographer/build` & `cmake .. -G Ninja`
 
-   ![222](cartographer_截图\222.png)
+   ![](http://yotuku.cn/link?url=EkWYv2Aef&tk_plan=free&tk_storage=tietuku&tk_vuid=a577832b-efdb-4ad2-8b19-e290d50f6e07&tk_time=2016111121)
 
 * `ninja`
 

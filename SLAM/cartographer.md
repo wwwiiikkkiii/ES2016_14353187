@@ -101,7 +101,7 @@ source install_isolated/setup.bash
   ```
 * 修改好后从新运行该步骤命令，成功执行后结果如下图
 
-   ![换源](cartographer_截图\换源.png)
+   ![](http://yotuku.cn/link?url=Ey3K82RlM&tk_plan=free&tk_storage=tietuku&tk_vuid=a577832b-efdb-4ad2-8b19-e290d50f6e07&tk_time=2016111121)
 
 
 **4.数据下载测试（运行google提供的demo，显示google采集到的一个房间的地图）**
@@ -119,7 +119,7 @@ roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloa
 
 运行结果：
 
- ![2D](cartographer_截图\2D.png)
+   ![](http://yotuku.cn/link?url=NkGLL2Rxf&tk_plan=free&tk_storage=tietuku&tk_vuid=a577832b-efdb-4ad2-8b19-e290d50f6e07&tk_time=2016111121)
 
 *#Download the 3D backpack example bag.*
 
